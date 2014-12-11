@@ -1,14 +1,4 @@
 Enterpriseape::Application.routes.draw do
-
-  
-  resource :items
-  
-  resource :emloyees
-  
-  resource :companies do
-    collection { post :import }
-  end
-    
   get "welcome/index"
   get "welcome/about"
   get "welcome/contact"
@@ -16,9 +6,7 @@ Enterpriseape::Application.routes.draw do
   get "welcome/pricing"
   get "welcome/features"
   
-  resources :invoices do
-    resources :purchases, except: [:index], controllers: 'invoice/purchases'
-  end
+  resources :invoices
   
   root to: 'welcome#index' 
   
